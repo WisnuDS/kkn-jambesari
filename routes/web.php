@@ -35,6 +35,15 @@ Route::group(["prefix" => "admin", "middleware" => ["auth"]], function (){
     //association
     Route::get('/association/data', [\App\Http\Controllers\Admin\AssociationController::class,'data']);
     Route::resource('association', \App\Http\Controllers\Admin\AssociationController::class);
+
+    //level
+    Route::get('/level/data', [\App\Http\Controllers\Admin\LevelController::class,'data']);
+    Route::resource('level', \App\Http\Controllers\Admin\LevelController::class);
+
+    //staff
+    Route::get('/staff/data', [\App\Http\Controllers\Admin\StaffController::class,'data']);
+    Route::post('/staff/upload', [\App\Http\Controllers\Admin\ContentController::class, 'cover']);
+    Route::resource('staff', \App\Http\Controllers\Admin\StaffController::class);
 });
 
 

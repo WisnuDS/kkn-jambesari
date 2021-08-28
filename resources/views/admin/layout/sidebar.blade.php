@@ -75,7 +75,8 @@ $categories = \App\Models\Category::withoutTrashed()->get()
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Desa</h6>
-                <a class="collapse-item" href="login.html">Perangkat Desa</a>
+                <a class="collapse-item" href="{{route('level.index')}}">Jabatan</a>
+                <a class="collapse-item" href="{{route('staff.index')}}">Perangkat Desa</a>
                 <a class="collapse-item" href="{{route('association.index')}}">RT/RW</a>
             </div>
         </div>
