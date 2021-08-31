@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::group(["prefix" => "admin", "middleware" => ["auth"]], function (){
     Route::view('/dashboard','admin.dashboard');
@@ -45,6 +45,19 @@ Route::group(["prefix" => "admin", "middleware" => ["auth"]], function (){
     Route::post('/staff/upload', [\App\Http\Controllers\Admin\ContentController::class, 'cover']);
     Route::resource('staff', \App\Http\Controllers\Admin\StaffController::class);
 });
+
+// front
+
+Route::name('front.')->group(function() {
+    Route::get('/', [\App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
+
+    Route::name('blog.')->prefix('blog')->group(function() {
+        Route::get('/', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('index');
+        Route::get('/category/{id}', [\App\Http\Controllers\Front\BlogController::class, 'category'])->name('category');
+        Route::get('/{id}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
+    });
+});
+
 
 
 
