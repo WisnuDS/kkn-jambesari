@@ -12,7 +12,7 @@
           <li><a href="#">Perangkat Desa</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="{{ Route('front.blog.index') }}" {{ Route::currentRouteName() == 'front.blog.index' ? 'class=active' : '' }}>Blog</a></li>
-          <li><a href="contact.html">Kritik & Saran</a></li>
+          <li><a href="{{ route('front.kritik-saran.create') }}" {{ Route::currentRouteName() == 'front.kritik-saran.create' ? 'class=active' : '' }}>Kritik & Saran</a></li>
 
           {{-- <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
