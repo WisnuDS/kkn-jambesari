@@ -56,6 +56,11 @@ Route::name('front.')->group(function() {
         Route::get('/category/{id}', [\App\Http\Controllers\Front\BlogController::class, 'category'])->name('category');
         Route::get('/{id}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
     });
+
+    Route::name('kritik-saran.')->prefix('kritik-saran')->group(function() {
+        Route::get('/', [\App\Http\Controllers\Front\KritikSaranController::class, 'create'])->name('create');
+        Route::post('/store', [\App\Http\Controllers\Front\KritikSaranController::class, 'store'])->name('store');
+    });
 });
 
 
