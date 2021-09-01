@@ -22,7 +22,12 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        $data = Content::find($id);
+        $data = [
+            'article' => Content::with('user')->find($id),
+            'categories' => Category::all(),
+            'recent_posts' => Content::limit(3)->orderBy('created_at', 'desc')->get(),
+
+        ];
         return view('front.blog.show')->with(compact('data'));
     }
 

@@ -11,7 +11,7 @@
           <article class="entry">
 
             <div class="entry-img">
-              <img src="{{ asset($article->cover) }}" alt="" class="img-fluid">
+              <img src="{{ asset('/storage/' . $article->cover) }}" alt="" class="img-fluid">
             </div>
 
             <h2 class="entry-title">
@@ -70,7 +70,7 @@
             <div class="sidebar-item recent-posts">
                 @foreach($data['recent_posts'] as $post)
                 <div class="post-item clearfix">
-                    <img src="{{ asset($post->cover) }}" alt="">
+                    <img src="{{ asset('/storage/' . $post->cover) }}" alt="">
                     <h4><a href="{{ route('front.blog.show', ['id' => $post->id]) }}">{{ $post->title }}</a></h4>
                     <time datetime="{{  $post->created_at->toDateString() }}">{{ $post->created_at->format('d M Y') }}</time>
                 </div>
