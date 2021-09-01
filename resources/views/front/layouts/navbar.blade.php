@@ -10,7 +10,7 @@
         <ul>
           <li><a href="{{ route('front.index') }}" {{ Route::currentRouteName() == "front.index" ? "class=active" : '' }}>Home</a></li>
           <li><a href="{{ route('front.perangkat_desa.index') }}" {{ Route::currentRouteName() == 'front.perangkat_desa.index' ? 'class=active' : '' }}>Perangkat Desa</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="{{ route('front.services.index') }}" {{ Route::currentRouteName() == 'front.services.index' ? 'class=active' : '' }}>Services</a></li>
           <li><a href="{{ route('front.blog.index') }}" {{ Route::currentRouteName() == 'front.blog.index' ? 'class=active' : '' }}>Blog</a></li>
           <li><a href="{{ route('front.kritik-saran.create') }}" {{ Route::currentRouteName() == 'front.kritik-saran.create' ? 'class=active' : '' }}>Kritik & Saran</a></li>
 

@@ -68,6 +68,12 @@ Route::name('front.')->group(function() {
         Route::get('/', [\App\Http\Controllers\Front\KritikSaranController::class, 'create'])->name('create');
         Route::post('/store', [\App\Http\Controllers\Front\KritikSaranController::class, 'store'])->name('store');
     });
+
+    // layanan (services)
+    Route::name('services.')->prefix('services')->group(function() {
+        Route::get('/', [\App\Http\Controllers\Front\ServiceController::class, 'index'])->name('index');
+        Route::get('/apply/{id}', [\App\Http\Controllers\Front\ServiceController::class, 'apply'])->name('apply');
+    });
 });
 
 
