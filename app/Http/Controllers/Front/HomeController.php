@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use App\Models\Level;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -12,8 +13,9 @@ class HomeController extends Controller
         return view('front.home');
     }
 
-    public function perangkat()
+    public function perangkatDesa()
     {
-        // return view();
+        $data = Level::with('staff')->get();
+        return view('front.perangkat_desa.index')->with(compact('data'));
     }
 }

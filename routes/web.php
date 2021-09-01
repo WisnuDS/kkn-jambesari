@@ -49,14 +49,21 @@ Route::group(["prefix" => "admin", "middleware" => ["auth"]], function (){
 // front
 
 Route::name('front.')->group(function() {
+    // landing page
     Route::get('/', [\App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
 
+    // perangkat desa
+    Route::get('/perangkat-desa', [\App\Http\Controllers\Front\HomeController::class, 'perangkatDesa'])->name('perangkat_desa.index');
+
+
+    // blog
     Route::name('blog.')->prefix('blog')->group(function() {
         Route::get('/', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('index');
         Route::get('/category/{id}', [\App\Http\Controllers\Front\BlogController::class, 'category'])->name('category');
         Route::get('/{id}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
     });
 
+    // kritik saran
     Route::name('kritik-saran.')->prefix('kritik-saran')->group(function() {
         Route::get('/', [\App\Http\Controllers\Front\KritikSaranController::class, 'create'])->name('create');
         Route::post('/store', [\App\Http\Controllers\Front\KritikSaranController::class, 'store'])->name('store');

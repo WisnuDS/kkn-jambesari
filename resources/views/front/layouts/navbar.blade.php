@@ -8,10 +8,10 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="{{ Route('front.index') }}" {{ Route::currentRouteName() == "front.index" ? "class=active" : '' }}>Home</a></li>
-          <li><a href="#">Perangkat Desa</a></li>
+          <li><a href="{{ route('front.index') }}" {{ Route::currentRouteName() == "front.index" ? "class=active" : '' }}>Home</a></li>
+          <li><a href="{{ route('front.perangkat_desa.index') }}" {{ Route::currentRouteName() == 'front.perangkat_desa.index' ? 'class=active' : '' }}>Perangkat Desa</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="{{ Route('front.blog.index') }}" {{ Route::currentRouteName() == 'front.blog.index' ? 'class=active' : '' }}>Blog</a></li>
+          <li><a href="{{ route('front.blog.index') }}" {{ Route::currentRouteName() == 'front.blog.index' ? 'class=active' : '' }}>Blog</a></li>
           <li><a href="{{ route('front.kritik-saran.create') }}" {{ Route::currentRouteName() == 'front.kritik-saran.create' ? 'class=active' : '' }}>Kritik & Saran</a></li>
 
           {{-- <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
