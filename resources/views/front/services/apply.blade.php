@@ -7,27 +7,27 @@
                   <form action="{{ route('front.kritik-saran.store') }}" method="post" role="form" class="php-email-form">
                     @csrf
                     <div class="row">
+
                       <div class="col-md-6 form-group">
                         <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
                       </div>
+
                       <div class="col-md-6 form-group mt-3 mt-md-0">
                         <input type="text" class="form-control" name="nik" id="nik" placeholder="NIK" required>
                       </div>
+
                     </div>
+
                     <div class="form-group mt-3">
                       <input type="text" class="form-control" name="address" id="address" placeholder="Alamat" required>
                     </div>
-                    <div class="form-group mt-3">
-                      <textarea class="form-control" name="content" rows="5" placeholder="Kritik & Saran" required></textarea>
+
+                    @foreach ($requirements as $requirement)
+                    <div class="form-group mt-3 mt-md-0">
+                        <input type="file" class="form-control" name="{{ $requirement->name }}" required>
                     </div>
-                    <div class="my-3">
-                      @if ($errors->any())
-                        <div class="error-message">{{ $errors->first() }}</div>
-                      @endif
-                      @if(session()->has('success'))
-                        <div class="sent-message">{{ session()->get('success') }}</div>
-                      @endif
-                    </div>
+                    @endforeach
+
                     <div class="text-center"><button type="submit">Kirim</button></div>
                   </form>
                 </div>

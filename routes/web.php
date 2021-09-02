@@ -72,7 +72,7 @@ Route::name('front.')->group(function() {
     // layanan (services)
     Route::name('services.')->prefix('services')->group(function() {
         Route::get('/', [\App\Http\Controllers\Front\ServiceController::class, 'index'])->name('index');
-        Route::get('/apply/{id}', [\App\Http\Controllers\Front\ServiceController::class, 'apply'])->name('apply');
+        Route::get('/apply/{documentId}', [\App\Http\Controllers\Front\ServiceController::class, 'apply'])->name('apply');
     });
 
     // profil data rt rw

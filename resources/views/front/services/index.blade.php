@@ -20,7 +20,7 @@
                   </svg>
                   <i class="bx bxl-dribbble"></i>
                 </div>
-                <h4><a href="{{ route('front.services.apply', ['id' => $service->id]) }}">{{ $service->name }}</a></h4>
+                <h4><a href="{{ route('front.services.apply', ['documentId' => $service->id]) }}">{{ $service->name }}</a></h4>
                 {{-- <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> --}}
               </div>
             </div>
