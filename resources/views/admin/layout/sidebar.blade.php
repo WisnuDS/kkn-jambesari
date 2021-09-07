@@ -1,5 +1,5 @@
 @php
-$categories = \App\Models\Category::withoutTrashed()->get()
+    $categories = \App\Models\Category::withoutTrashed()->get()
 @endphp
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -7,7 +7,8 @@ $categories = \App\Models\Category::withoutTrashed()->get()
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/admin/dashboard')}}">
         <div class="sidebar-brand-icon">
-            <img class="img-fluid" src="{{asset('admin/assets/img/logo-banyuwangi.png')}}" alt="Logo Banyuwangi" width="70%">
+            <img class="img-fluid" src="{{asset('admin/assets/img/logo-banyuwangi.png')}}" alt="Logo Banyuwangi"
+                 width="70%">
         </div>
         <div class="sidebar-brand-text mx-3">Jambesari</div>
     </a>
@@ -66,9 +67,10 @@ $categories = \App\Models\Category::withoutTrashed()->get()
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerangkat" aria-expanded="true"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerangkat"
+           aria-expanded="true"
            aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
+            <i class="fas fa-fw fa-user"></i>
             <span>Perangkat</span>
         </a>
         <div id="collapsePerangkat" class="collapse" aria-labelledby="headingPages"
@@ -87,23 +89,23 @@ $categories = \App\Models\Category::withoutTrashed()->get()
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
            aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Kepuasan Masyarakat</span>
+            <span>Pengurusan Surat Desa</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Kepuasan Masyarakat</h6>
-                <a class="collapse-item" href="login.html">Kritik Saran</a>
-                <a class="collapse-item" href="register.html">Tingkat Kepuasan</a>
+                <h6 class="collapse-header">Surat dan Prasyarat</h6>
+                <a class="collapse-item" href="{{route('document.index')}}">Surat</a>
+                <a class="collapse-item" href="{{route('citizen.index')}}">Pengurusan Surat</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Pengurusan Surat Desa</span></a>
+        <a class="nav-link" href="{{route('critics.index')}}">
+            <i class="fas fa-fw fa-mail-bulk"></i>
+            <span>Kritik dan Saran</span></a>
     </li>
 
     <!-- Divider -->

@@ -12,7 +12,7 @@ class BlogController extends Controller
     public function index()
     {
         $data = [
-            'articles' => Content::with('user')->paginate(3),
+            'articles' => Content::with('user')->orderBy('created_at', 'desc')->paginate(3),
             'recent_posts' => Content::limit(3)->orderBy('created_at', 'desc')->get(),
             'categories' => Category::all(),
         ];

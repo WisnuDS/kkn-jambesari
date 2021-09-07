@@ -11,7 +11,7 @@
           <article class="entry">
 
             <div class="entry-img">
-              <img src="{{ asset('/storage/' . $article->cover) }}" alt="" class="img-fluid">
+              <img src="{{ asset('/storage/' . $article->cover) }}" width="100%" alt="" class="img-fluid">
             </div>
 
             <h2 class="entry-title">
@@ -21,7 +21,7 @@
             <div class="entry-meta">
               <ul>
                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ $article->user->name }}</a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="$article->created_at->format('d M Y')">{{ $article->created_at->format('d M Y') }}</time></a></li>
+                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="{{$article->created_at->format('d M Y')}}">{{ $article->created_at->format('d M Y') }}</time></a></li>
               </ul>
             </div>
 
@@ -39,7 +39,7 @@
 
 
           <!-- Pagination -->
-          {{ $data['articles']->links() }}
+          {{ $data['articles']->links('front.layouts.pagination') }}
         <!-- End Pagination -->
 
         </div><!-- End blog entries list -->
@@ -70,7 +70,7 @@
             <div class="sidebar-item recent-posts">
                 @foreach($data['recent_posts'] as $post)
                 <div class="post-item clearfix">
-                    <img src="{{ asset('/storage/' . $post->cover) }}" alt="">
+                    <img src="{{ asset('/storage/' . $post->cover) }}" height="50px" alt="Image">
                     <h4><a href="{{ route('front.blog.show', ['id' => $post->id]) }}">{{ $post->title }}</a></h4>
                     <time datetime="{{  $post->created_at->toDateString() }}">{{ $post->created_at->format('d M Y') }}</time>
                 </div>
@@ -88,3 +88,20 @@
     </div>
   </section><!-- End Blog Section -->
 @endsection
+
+@push('styles')
+    <style>
+        .page-item.active .page-link{
+            background-color: #1bbd36;
+            border-color: #ececec;
+        }
+
+        .page-link{
+            color: #1bbd36;
+        }
+
+        .page-link:hover{
+            color: #2ae149;
+        }
+    </style>
+@endpush

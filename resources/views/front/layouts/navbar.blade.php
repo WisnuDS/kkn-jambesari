@@ -2,7 +2,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Jambesari</a></h1>
+      <h1 class="logo me-auto"><a href="/">Jambesari</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -10,9 +10,9 @@
         <ul>
           <li><a href="{{ route('front.index') }}" {{ Route::currentRouteName() == "front.index" ? "class=active" : '' }}>Home</a></li>
           <li><a href="{{ route('front.perangkat_desa.index') }}" {{ Route::currentRouteName() == 'front.perangkat_desa.index' ? 'class=active' : '' }}>Perangkat Desa</a></li>
-          <li><a href="{{ route('front.services.index') }}" {{ Route::currentRouteName() == 'front.services.index' ? 'class=active' : '' }}>Services</a></li>
+          <li><a href="{{ route('front.services.index') }}" {{ Route::currentRouteName() == 'front.services.index' ? 'class=active' : '' }}>Pelayanan</a></li>
           <li><a href="{{ route('front.profil_rt_rw') }}" {{ Route::currentRouteName() == 'front.profil_rt_rw' ? 'class=active' : '' }}>Profil Data RT/RW</a></li>
-          <li><a href="{{ route('front.blog.index') }}" {{ Route::currentRouteName() == 'front.blog.index' ? 'class=active' : '' }}>Blog</a></li>
+          <li><a href="{{ route('front.blog.index') }}" {{ Route::currentRouteName() == 'front.blog.index' ? 'class=active' : '' }}>Potensi Desa</a></li>
           <li><a href="{{ route('front.kritik-saran.create') }}" {{ Route::currentRouteName() == 'front.kritik-saran.create' ? 'class=active' : '' }}>Kritik & Saran</a></li>
 
           {{-- <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
@@ -37,13 +37,6 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
-      <div class="header-social-links d-flex">
-        <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
-      </div>
 
     </div>
   </header><!-- End Header -->

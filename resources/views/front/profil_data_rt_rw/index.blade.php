@@ -14,16 +14,14 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach ($data as $row)
                 <tr>
-                    @forelse ($data as $row)
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->position }}</td>
                     <td>{{ $row->association_number }}</td>
                     <td>{{ $row->address }}</td>
-                @empty
-                    <td colspan="4">belum ada data</td>
-                @endforelse
                 </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

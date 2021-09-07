@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(["prefix" => "admin", "middleware" => ["auth"]], function (){
-    Route::view('/dashboard','admin.dashboard');
+    Route::get('/dashboard',[\App\Http\Controllers\Admin\DashboardController::class, 'index']);
 
     //category
     Route::get('/category/data', [\App\Http\Controllers\Admin\CategoryController::class,'data']);
@@ -44,6 +44,17 @@ Route::group(["prefix" => "admin", "middleware" => ["auth"]], function (){
     Route::get('/staff/data', [\App\Http\Controllers\Admin\StaffController::class,'data']);
     Route::post('/staff/upload', [\App\Http\Controllers\Admin\ContentController::class, 'cover']);
     Route::resource('staff', \App\Http\Controllers\Admin\StaffController::class);
+
+    //critics
+    Route::resource('critics', \App\Http\Controllers\Admin\CriticsController::class)->only('index');
+
+    //document
+    Route::get('/document/data', [\App\Http\Controllers\Admin\DocumentController::class, 'data']);
+    Route::resource('document', \App\Http\Controllers\Admin\DocumentController::class);
+
+    //citizen
+    Route::get('/citizen/data', [\App\Http\Controllers\Admin\CitizenController::class, 'data']);
+    Route::resource('citizen', \App\Http\Controllers\Admin\CitizenController::class);
 });
 
 // front
@@ -73,6 +84,7 @@ Route::name('front.')->group(function() {
     Route::name('services.')->prefix('services')->group(function() {
         Route::get('/', [\App\Http\Controllers\Front\ServiceController::class, 'index'])->name('index');
         Route::get('/apply/{documentId}', [\App\Http\Controllers\Front\ServiceController::class, 'apply'])->name('apply');
+        Route::post('/submit/{documentId}', [\App\Http\Controllers\Front\ServiceController::class, 'submit'])->name('submit');
     });
 
     // profil data rt rw

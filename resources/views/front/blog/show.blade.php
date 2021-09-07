@@ -11,7 +11,7 @@
                     <article class="entry entry-single">
 
                         <div class="entry-img">
-                            <img src="{{ asset('/storage/' . $data['article']->cover) }}" alt="" class="img-fluid">
+                            <img src="{{ asset('/storage/' . $data['article']->cover) }}" alt="Image" width="100%" class="img-fluid">
                         </div>
 
                         <h2 class="entry-title">
@@ -21,9 +21,9 @@
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                        href="blog-single.html">{{ $data['article']->user->name }}</a></li>
+                                        href="#">{{ $data['article']->user->name }}</a></li>
                                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                        href="blog-single.html"><time
+                                        href="#"><time
                                             datetime="2020-01-01">{{ $data['article']->created_at->format('d M Y') }}</time></a></li>
                             </ul>
                         </div>
@@ -78,7 +78,7 @@
                         <div class="sidebar-item recent-posts">
                             @foreach ($data['recent_posts'] as $post)
                                 <div class="post-item clearfix">
-                                    <img src="{{ asset('/storage/' . $post->cover) }}" alt="">
+                                    <img src="{{ asset('/storage/' . $post->cover) }}" height="50px" alt="Image">
                                     <h4><a
                                             href="{{ route('front.blog.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
                                     </h4>

@@ -4,7 +4,7 @@
         <div class="container" >
             <div class="row mt-5 justify-content-center" data-aos="fade-up">
                 <div class="col-lg-10">
-                  <form action="{{ route('front.kritik-saran.store') }}" method="post" role="form" class="php-email-form">
+                  <form action="{{ route('front.services.submit', $document->id) }}" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
 
@@ -22,9 +22,14 @@
                       <input type="text" class="form-control" name="address" id="address" placeholder="Alamat" required>
                     </div>
 
+                      <div class="form-group mt-3">
+                          <input type="text" class="form-control" name="whatsapp_number" id="address" placeholder="Nomer WA" required>
+                      </div>
+
                     @foreach ($requirements as $requirement)
                     <div class="form-group mt-3 mt-md-0">
-                        <input type="file" class="form-control" name="{{ $requirement->name }}" required>
+                        <label for="form_{{ $requirement->id }}">{{ $requirement->name }}</label>
+                        <input type="file" class="form-control" name="form_{{ $requirement->id }}" id="{{ $requirement->name }}" required>
                     </div>
                     @endforeach
 
